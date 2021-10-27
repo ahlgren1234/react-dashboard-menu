@@ -50,3 +50,32 @@ body {
   right: 0;
   transform: translateY(-50%);
 }
+
+.side-menu .search-controller {
+  color: #fff;
+  position: relative;
+}
+
+.side-menu .search-controller .search-btn {
+  width: 40px;
+  height: 35px;
+  position: absolute;
+  background: transparent;
+  border: 0;
+  font-size: 20px;
+  color: #666;
+}
+
+.side-menu .search-controller input[type="text"] {
+  border: 0;
+  outline: none;
+  height: 35px;
+  background: #333;
+  border-radius: 5px;
+  display: block;
+  margin: 20px 0;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0 40px;
+  color: #666;
+}

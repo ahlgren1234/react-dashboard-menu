@@ -12,6 +12,13 @@ const SideMenu = (props) => {
           <i className="bi bi-arrow-left-square-fill"></i>
         </div>
       </div>
+
+      <div className="search-controller">
+        <button className="search-btn">
+          <i className="bi bi-search"></i>
+        </button>
+        <input type="text" placeholder="search" />
+      </div>
     </div>
   );
 };
