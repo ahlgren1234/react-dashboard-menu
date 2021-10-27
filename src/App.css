@@ -24,6 +24,11 @@ body {
   height: 100%;
   box-sizing: border-box;
   padding: 30px 20px;
+  transition: width 0.2s ease-in;
+}
+
+.side-menu.inactive {
+  width: 80px;
 }
 
 .side-menu .top-section {
@@ -49,6 +54,11 @@ body {
   top: 50%;
   right: 0;
   transform: translateY(-50%);
+  cursor: pointer;
+}
+
+.side-menu.inactive .top-section .toggle-menu-btn {
+  right: -50px;
 }
 
 .side-menu .search-controller {
@@ -76,6 +86,88 @@ body {
   margin: 20px 0;
   width: 100%;
   box-sizing: border-box;
-  padding: 0 40px;
+  padding-left: 40px;
   color: #666;
+}
+
+.side-menu .main-menu .menu-item {
+  color: #333;
+  text-decoration: none;
+  font-size: 15px;
+  display: block;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.side-menu .main-menu {
+  margin: 5px 0;
+}
+
+.side-menu .main-menu .menu-item .menu-icon {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  font-size: 20px;
+  line-height: 40px;
+  text-align: center;
+}
+
+.side-menu .main-menu .sub-menu {
+  color: #333;
+  margin-left: 20px;
+  border-left: 1px solid #666;
+  box-sizing: border-box;
+  padding-left: 30px;
+}
+
+.side-menu .main-menu .sub-menu a {
+  display: block;
+  margin: 5px 0;
+  font-size: 15px;
+  font-weight: 600;
+  color: #333;
+  text-decoration: none;
+}
+
+.side-menu-footer {
+  width: 100%;
+  background: #333;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.side-menu-footer .avatar {
+  width: 40px;
+  height: 40px;
+  overflow: hidden;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.side-menu-footer .avatar img {
+  max-width: 100%;
+}
+
+.side-menu-footer .user-info {
+  display: inline-block;
+  margin: 0 10px;
+  color: #fff;
+}
+
+.side-menu-footer .user-info h5 {
+  font-size: 15px;
+}
+
+.side-menu-footer .user-info p {
+  font-size: 14px;
+}
+
+.divider {
+  width: 100%;
+  height: 1px;
+  border-radius: 1px;
+  background-color: #333;
 }
