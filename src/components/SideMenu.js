@@ -1,9 +1,39 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import logo from "../assets/logo/tIiLSAc.png";
 import user from "../assets/johndoe-avatar.png";
+import MenuItem from "./MenuItem";
+
+const menuItems = [
+  {
+    name: "Dashboard",
+    exact: true,
+    to: "/",
+    iconClassName: "bi bi-speedometer2",
+  },
+  {
+    name: "Content",
+    exact: true,
+    to: "/content",
+    iconClassName: "bi bi-newspaper",
+    subMenus: [
+      { name: "Courses", to: "/content/courses" },
+      { name: "Videos", to: "/content/videos" },
+    ],
+  },
+  { name: "Design", to: "/design", iconClassName: "bi bi-vector-pen" },
+];
 
 const SideMenu = (props) => {
   const [inactive, setInactive] = useState(false);
+
+  useEffect(() => {
+    if (inactive) {
+      document.querySelectorAll(".sub-menu").forEach((el) => {
+        el.classList.remove("active");
+      });
+    }
+    props.onCollapse(inactive);
+  }, [inactive]);
 
   return (
     <div className={`side-menu ${inactive ? "inactive" : ""}`}>
@@ -31,38 +61,43 @@ const SideMenu = (props) => {
 
       <div className="main-menu">
         <ul>
+          {menuItems.map((menuItem, index) => (
+            <MenuItem
+              key={index}
+              name={menuItem.name}
+              exact={menuItem.exact}
+              to={menuItem.to}
+              subMenus={menuItem.subMenus || []}
+              iconClassName={menuItem.iconClassName}
+              onClick={() => {
+                if (inactive) {
+                  setInactive(false);
+                }
+              }}
+            />
+          ))}
+          {/*
           <li>
             <a href="#" className="menu-item">
               <div className="menu-icon">
                 <i className="bi bi-speedometer2"></i>
               </div>
-              Dashboard
+              <span>Dashboard</span>
             </a>
           </li>
-          <li>
-            <a href="#" className="menu-item">
-              <div className="menu-icon">
-                <i className="bi bi-newspaper"></i>
-              </div>
-              Content
-            </a>
-            <ul className="sub-menu">
-              <li>
-                <a href="#">Courses</a>
-              </li>
-              <li>
-                <a href="#">Videos</a>
-              </li>
-            </ul>
-          </li>
+          <MenuItem
+            name={"Content"}
+            subMenus={[{ name: "Courses" }, { name: "Videos" }]}
+          />
           <li>
             <a href="#" className="menu-item">
               <div className="menu-icon">
                 <i className="bi bi-vector-pen"></i>
               </div>
-              Design
+              <span>Design</span>
             </a>
           </li>
+            */}
         </ul>
       </div>
 
